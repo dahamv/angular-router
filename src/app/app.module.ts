@@ -16,8 +16,8 @@ import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component'
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    HeroesModule
+    HeroesModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

@@ -73,7 +73,7 @@ button.delete {
 
 .heroes li.selected {
   background-color: #CFD8DC;
-  color: white;
+  color: red;
 }
 .heroes li.selected:hover {
   background-color: #BBD8DC;
