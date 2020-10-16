@@ -17,6 +17,7 @@ import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component'
     BrowserModule,
     FormsModule,
     HeroesModule,
+    //NOTE: AppRoutingModule import MUST come after the HeroesModule. Since HeroesModule has the routes for heros.
     AppRoutingModule
   ],
   declarations: [
