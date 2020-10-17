@@ -8,6 +8,7 @@ FROM gitpod/workspace-full
 RUN npm install -g @angular/cli
 RUN sudo mkdir -p /workspace/chrome
 RUN sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /workspace/chrome
+RUN sudo add-apt-repository universe
 RUN sudo apt-get update -y
 RUN sudo apt-get -y install libgconf2-4 libnss3-1d libxss1
 RUN sudo dpkg -i /workspace/chrome/google-chrome-stable_current_amd64.deb
