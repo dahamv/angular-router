@@ -6,3 +6,5 @@ FROM gitpod/workspace-full
 #
 # More information: https://www.gitpod.io/docs/config-docker/
 RUN npm install -g @angular/cli
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /workspace/chrome
+RUN sudo dpkg -i /workspace/chrome/google-chrome-stable_current_amd64.deb
