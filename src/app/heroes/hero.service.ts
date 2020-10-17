@@ -20,6 +20,6 @@ export class HeroService {
   }
 
   getHero(id : number): Observable<Hero> {
-    return of(HEROES[id]);
+    return of(HEROES.find(hero => hero.id === id));
   }
 }
