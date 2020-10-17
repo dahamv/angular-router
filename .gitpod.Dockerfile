@@ -9,5 +9,4 @@ RUN npm install -g @angular/cli
 RUN sudo mkdir -p /workspace/chrome
 RUN sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /workspace/chrome
 RUN sudo apt update
-RUN sudo apt upgrade
 RUN sudo apt install /workspace/chrome/google-chrome-stable_current_amd64.deb
