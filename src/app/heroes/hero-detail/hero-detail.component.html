@@ -1,1 +1,4 @@
-<p>Hero Name : {{heroName}} and Id : {{heroId}}</p>
+<p>Hero Name : {{hero.name}} and Id : {{hero.id}}</p>
+<div *ngIf="navigatedByUrl">
+<button onclick="gotoHeroes()">go back to heros</button>
+</div>

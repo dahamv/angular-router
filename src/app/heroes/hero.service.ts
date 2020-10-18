@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from '../message.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,10 @@ export class HeroService {
     return of(HEROES);
   }
 
-  getHero(id : number): Observable<Hero> {
-    return of(HEROES.find(hero => hero.id === id));
+  getHero(id: number | string) {
+    return this.getHeroes().pipe(
+      // (+) before `id` turns the string into a number
+      map((heroes: Hero[]) => heroes.find(hero => hero.id === +id))
+    );
   }
 }
