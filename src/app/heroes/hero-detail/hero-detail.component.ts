@@ -29,6 +29,8 @@ export class HeroDetailComponent implements OnInit {
   }
 
   gotoHeroes() {
+    //This doesn't get called why?
+    console.log("gotoHeros called");
     this.router.navigate(['/heroes']);
   }
 }
