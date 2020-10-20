@@ -16,37 +16,36 @@ import { switchMap } from 'rxjs/operators';
 export class HeroListComponent implements OnInit {
 
   selectedHero$: Observable<Hero>;
-  selectedHero : Hero;
-
-  heroes: Hero[];
+  //To highlight the selected item in the list
+  selectedHeroId : number;
+  heroes$: Observable<Hero[]>;
 
   constructor(private route: ActivatedRoute,
-                private router: Router, private heroService: HeroService, private messageService: MessageService) { }
+                private heroService: HeroService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.getHeroes();
-
     /**
      * To see difference between paramMap and snapshot.ParamMap methods.
      */
+    this.heroes$ = this.getHeroes();
     this.selectedHero$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        let id = +params.get('id');
-        console.log('the id ' + id);
-        let hero = this.heroService.getHero(id);
-        return hero;
+
+        //Handle both cases /heroes/15 and /heroes;hid=15;foo=foo
+        let id = +params.get('id') || +params.get('hid');
+        this.selectedHeroId = id;
+        return this.heroService.getHero(id);
       })
     );
   }
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+    this.selectedHeroId = hero.id;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+  getHeroes(): Observable<Hero[]> {
+    return this.heroService.getHeroes();
   }
 }
 

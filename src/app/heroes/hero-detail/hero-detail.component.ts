@@ -12,7 +12,7 @@ import { Hero } from '../hero';
 })
 export class HeroDetailComponent implements OnInit {
 
-
+  //hero is set both by parents property biding and this.ngOnInit()
   @Input() hero : Hero;
   navigatedByUrl : boolean;
 
@@ -21,16 +21,25 @@ export class HeroDetailComponent implements OnInit {
                 private service: HeroService) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.service.getHero(id).subscribe(hero => this.hero = hero);
     //check if this componenet is created by router-outlet or the parent component.
     this.navigatedByUrl = this.router.url.includes("/hero/");
-
+    if(this.navigatedByUrl) {
+      const id = this.route.snapshot.paramMap.get('id');
+      this.service.getHero(id).subscribe(hero => this.hero = hero);
+    }
   }
 
-  gotoHeroes() {
-    //This doesn't get called why?
-    console.log("gotoHeros called");
-    this.router.navigate(['/heroes']);
+  gotoHeroes(hero: Hero) {
+    const heroId = hero ? hero.id : null;
+    /**
+       * The router navigate() method takes the same one-item link parameters array that you can bind to a [routerLink] directive.
+       *
+       * Pass along the hero id if available so that the HeroList component can select that hero and highlight the hero just viewed.
+       * Include a junk 'foo' property for fun.
+       *
+       * The optional route parameters are not separated by "?" and "&" as they would be in the URL query string.
+       * They are separated by semicolons ";". This is matrix URL notation.
+      */
+    this.router.navigate(['/heroes', { hid: heroId, foo: 'foo' }]);
   }
 }

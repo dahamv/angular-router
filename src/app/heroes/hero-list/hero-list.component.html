@@ -1,11 +1,10 @@
 <h2>HEROES</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
+  <li *ngFor="let hero of heroes$ | async"
+    [class.selected]="hero.id === selectedHeroId"
     (click)="onSelect(hero)">
-    <a class="li" [routerLink]="['/hero', hero.id]">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <a  [routerLink]="['/hero', hero.id]"><span style="float: right" class="badge">go to</span></a>
     <a [routerLink]="['/heroes', hero.id]"><span style="float: right" class="badge">see here</span></a>
 
   </li>
