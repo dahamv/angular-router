@@ -1,4 +1,14 @@
-<p *ngIf="hero">Hero Name : {{hero.name}} and Id : {{hero.id}}</p>
-<div *ngIf="navigatedByUrl">
-<button (click)="gotoHeroes(hero)">Back</button>
+<h2>HERO</h2>
+<div *ngIf="hero$ | async as hero">
+  <h3>"{{ hero.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ hero.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name"/>
+  </div>
+  <div *ngIf="navigatedByUrl">
+    <button (click)="gotoHeroes(hero)">Back</button>
+  </div>
 </div>
+

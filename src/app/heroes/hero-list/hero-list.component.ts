@@ -33,7 +33,13 @@ export class HeroListComponent implements OnInit {
 
         //Handle both cases /heroes/15 and /heroes;hid=15;foo=foo
         let id = +params.get('id') || +params.get('hid');
-        this.selectedHeroId = id;
+        /**
+         * wrap this arround setTimeOut() as a workaround to avoid Error ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked.
+         * Previous value for 'selected': 'false'. Current value: 'true'.
+         * This is an Angular componenet lifecycle related error.
+         * see https://stackoverflow.com/questions/9083594/call-settimeout-without-delay
+         */
+        setTimeout(() => this.selectedHeroId = id);
         return this.heroService.getHero(id);
       })
     );

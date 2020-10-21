@@ -3,4 +3,9 @@
   <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
   <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
 </nav>
-<router-outlet></router-outlet>
+<div [@heroesRouteAnimation]="getAnimationData(myRouterOutlet)">
+<!-- #myRouterOutlet is a reference variable so that we can refer to the <router-outlet> element.
+     In most cases, Angular sets the reference variable's value to the element on which it is declared.
+     But here the 'outlet'  template variable in the router-outlet is assigned. -->
+  <router-outlet #myRouterOutlet="outlet"></router-outlet>
+</div>

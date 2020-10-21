@@ -9,6 +9,6 @@
 
   </li>
 </ul>
-
+<button routerLink="/sidekicks">Go to sidekicks</button>
 <h3> To see how paramMap works </h3>
-<app-hero-detail [hero]="selectedHero$ | async"></app-hero-detail>
+<app-hero-detail [hero$]="selectedHero$"></app-hero-detail>

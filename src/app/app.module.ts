@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +16,7 @@ import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component'
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
     //NOTE: AppRoutingModule import MUST come after the HeroesModule. Since HeroesModule has the routes for heros.

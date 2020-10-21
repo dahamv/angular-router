@@ -13,7 +13,7 @@ import { Hero } from '../hero';
 export class HeroDetailComponent implements OnInit {
 
   //hero is set both by parents property biding and this.ngOnInit()
-  @Input() hero : Hero;
+  @Input() hero$ : Observable<Hero>;
   navigatedByUrl : boolean;
 
   constructor(  private route: ActivatedRoute,
@@ -25,7 +25,7 @@ export class HeroDetailComponent implements OnInit {
     this.navigatedByUrl = this.router.url.includes("/hero/");
     if(this.navigatedByUrl) {
       const id = this.route.snapshot.paramMap.get('id');
-      this.service.getHero(id).subscribe(hero => this.hero = hero);
+      this. hero$ = this.service.getHero(id);
     }
   }
 
