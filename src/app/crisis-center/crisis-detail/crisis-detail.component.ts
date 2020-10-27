@@ -19,9 +19,12 @@ export class CrisisDetailComponent implements OnInit {
                 private service: CrisisService) {}
 
   ngOnInit(): void {
-
-    const id = this.route.snapshot.paramMap.get('id');
-    this. crisis$ = this.service.getCrisis(id);
+    this. crisis$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        let id = +params.get('id');
+        return this.service.getCrisis(id);
+      })
+    );
   }
 
   gotoCrises(crisis: Crisis) {
@@ -29,6 +32,9 @@ export class CrisisDetailComponent implements OnInit {
     /**
        * same as in hero-detail componenet.
       */
-    this.router.navigate(['/crises', { hid: crisisId, foo: 'foo' }]);
+    //this.router.navigate(['/crises', { hid: crisisId, foo: 'foo' }]);   //What was before crisis-center feature.
+
+    // Relative navigation back to the crises
+    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
   }
 }
