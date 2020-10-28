@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CrisisCenterModule } from './crisis-center/crisis-center.module';
   ],
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   bootstrap: [ AppComponent ]
 })
