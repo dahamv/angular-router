@@ -22,10 +22,10 @@ export class CrisisListComponent implements OnInit {
                 private crisisService: CrisisService, private messageService: MessageService) { }
 
   ngOnInit() {
-    console.log("crisis list onInit called");
-
-    //Handle /crisis-center;cid=1;foo=foo . Works even after component initialization beause of setTimeOut();
-    //Cant get /crisis-center/4 as id here since in router config "path: ':id'" is matched to CrisisDetailComponenet, Not this componenet
+    /** 
+    * Handle /crisis-center;cid=1;foo=foo . Works even after component initialization beause of setTimeOut();
+    * Cant get /crisis-center/4 as id here since in router config "path: ':id'" is matched to CrisisDetailComponenet, Not this componenet
+    */
     this.crises$ =  this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         //Without setTimeOut only works on componenet initialization.
@@ -35,7 +35,7 @@ export class CrisisListComponent implements OnInit {
       })
     );
 
-    //Works for /crisis-center/4 but only on componenet initialization.
+    /** Works for /crisis-center/4 but only on componenet initialization. */
     this.route.firstChild.paramMap.pipe(
       switchMap((params: ParamMap) => {
         //Since "path: ':id'" is defined for the firstChild CrisisDetailComponenet of CrisisListComponenet
@@ -47,8 +47,10 @@ export class CrisisListComponent implements OnInit {
         this.selectedCrisisId = id;
     });
 
-    //Followed https://stackoverflow.com/questions/48977775/activatedroute-subscribe-to-first-child-parameters-observer
-    //Works for [routerLink]=/crisis-center/4 . Since componenet is already initialized above method doesn't work.
+    /** 
+    * Followed https://stackoverflow.com/questions/48977775/activatedroute-subscribe-to-first-child-parameters-observer
+    * Works for [routerLink]=/crisis-center/4 . Since componenet is already initialized above method doesn't work.
+    */
     this.router.events
     .pipe(
       filter((event) => event instanceof NavigationEnd),
