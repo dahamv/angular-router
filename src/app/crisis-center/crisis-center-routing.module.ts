@@ -18,7 +18,7 @@ const crisisCenterRoutes: Routes = [
     path: 'crisis-center',
     component: CrisisCenterComponent,
     /**
-     * The router displays the components of these routes in the RouterOutlet of the CrisisCenterComponent,
+     * The <router-outlet> in CrisisCenterComponent loads the child componenet CrisisListComponent.
      * not in the RouterOutlet of the AppComponent shell.
      */
     children: [
@@ -26,7 +26,7 @@ const crisisCenterRoutes: Routes = [
         path: '',
         component: CrisisListComponent,
         /**
-         * The <router-outlet> in crisis-list.componenet.html loads the below child componenets.
+         * The <router-outlet> in crisis-list.componenet.html loads the below two child componenets.
          */
         children: [
           {

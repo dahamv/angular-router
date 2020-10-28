@@ -34,7 +34,7 @@ export class CrisisDetailComponent implements OnInit {
       */
     //this.router.navigate(['/crises', { hid: crisisId, foo: 'foo' }]);   //What was before crisis-center feature.
 
-    // Relative navigation back to the crises
-    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+    // NOTE: Relative navigation back to the crises
+    this.router.navigate(['../', { cid: crisisId, foo: 'foo' }], { relativeTo: this.route });
   }
 }
