@@ -16,9 +16,10 @@ import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-ho
 const crisisCenterRoutes: Routes = [
   {
     path: 'crisis-center',
+    //shown in AppComponenet <router-outlet>
     component: CrisisCenterComponent,
     /**
-     * The <router-outlet> in CrisisCenterComponent loads the child componenet CrisisListComponent.
+     * CrisisCenterComponent <router-outlet> loads the child componenet CrisisListComponent.
      * not in the RouterOutlet of the AppComponent shell.
      */
     children: [
@@ -26,14 +27,16 @@ const crisisCenterRoutes: Routes = [
         path: '',
         component: CrisisListComponent,
         /**
-         * The <router-outlet> in crisis-list.componenet.html loads the below two child componenets.
+         * The CrisisListComponent <router-outlet> loads the below two child componenets.
          */
         children: [
           {
+            //To navigate to the CrisisDetailComponent for a crisis with id=2, the full URL is /crisis-center/2 (/crisis-center + '' + '/2').
             path: ':id',
             component: CrisisDetailComponent
           },
           {
+            //To navigate to the CrisisCenterHomeComponent, the full URL is /crisis-center (/crisis-center + '' + '').
             path: '',
             component: CrisisCenterHomeComponent
           }

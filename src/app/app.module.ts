@@ -13,6 +13,9 @@ import { HeroesModule } from './heroes/heroes.module';
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
     FormsModule,
     HeroesModule,
     CrisisCenterModule,
-    //NOTE: AppRoutingModule import MUST come after the HeroesModule and CrisesModule. Since they have child routes.
+    AdminModule,
+    AuthModule,
+    //NOTE: AppRoutingModule import MUST come after the HeroesModule, CrisesModule etc. Since they have child routes.
     AppRoutingModule
   ],
   declarations: [

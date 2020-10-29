@@ -4,6 +4,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
+  //shown in AppComponenet <router-outlet>
   { path: 'heroes',  component: HeroListComponent, data: { animation: 'HeroesPage' } },
   //Add HerosPage animation to this path as well since this is considered as a seperate route
   { path: 'heroes/:id', component: HeroListComponent, data: { animation: 'HeroesPage' } },
