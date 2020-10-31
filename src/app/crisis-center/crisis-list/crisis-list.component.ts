@@ -22,7 +22,7 @@ export class CrisisListComponent implements OnInit {
                 private crisisService: CrisisService, private messageService: MessageService) { }
 
   ngOnInit() {
-    /** 
+    /**
     * Handle /crisis-center;cid=1;foo=foo . Works even after component initialization beause of setTimeOut();
     * Cant get /crisis-center/4 as id here since in router config "path: ':id'" is matched to CrisisDetailComponenet, Not this componenet
     */
@@ -47,7 +47,7 @@ export class CrisisListComponent implements OnInit {
         this.selectedCrisisId = id;
     });
 
-    /** 
+    /**
     * Followed https://stackoverflow.com/questions/48977775/activatedroute-subscribe-to-first-child-parameters-observer
     * Works for [routerLink]=/crisis-center/4 . Since componenet is already initialized above method doesn't work.
     */
@@ -59,8 +59,8 @@ export class CrisisListComponent implements OnInit {
         while (route.firstChild) route = route.firstChild;
         return route;
       }),
-      mergeMap((route) => route.paramMap),
-      tap( paramMap => console.log('ParamMap', paramMap))
+      mergeMap((route) => route.paramMap) //,
+      //tap( paramMap => console.log('ParamMap', paramMap))
     ).subscribe(
       // Get the params (paramAsMap.params) and use them to highlight or everything that meet your need
       (paramAsMap) =>  {

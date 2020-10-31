@@ -5,6 +5,7 @@ import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 import { CrisisCenterComponent } from './crisis-center.component';
 import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-home.component';
+import { CanDeactivateGuard, CanDeactivateGuardReusable } from '../can-deactivate.guard';
 
 /** What was before.....
 * const routes: Routes = [
@@ -33,7 +34,8 @@ const crisisCenterRoutes: Routes = [
           {
             //To navigate to the CrisisDetailComponent for a crisis with id=2, the full URL is /crisis-center/2 (/crisis-center + '' + '/2').
             path: ':id',
-            component: CrisisDetailComponent
+            component: CrisisDetailComponent,
+            canDeactivate: [CanDeactivateGuardReusable]
           },
           {
             //To navigate to the CrisisCenterHomeComponent, the full URL is /crisis-center (/crisis-center + '' + '').
