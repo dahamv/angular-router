@@ -32,6 +32,8 @@ export interface CanComponentDeactivate {
 
 /**
  * **********************************************Method 2*******************************************************
+ * This is componenet specific. It would be useful if you only wanted to use this guard for the CrisisDetailComponent and
+ * needed to get the component's properties or confirm whether the router should allow navigation away from it.
  */
 
 

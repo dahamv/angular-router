@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -23,12 +23,21 @@ export class LoginComponent {
     this.authService.login().subscribe(() => {
       this.setMessage();
       if (this.authService.isLoggedIn) {
-        // Usually you would use the redirect URL from the auth service.
-        // However to keep the example simple, we will always redirect to `/admin`.
-        const redirectUrl = '/admin';
+        // preserve the global query params and fragment. In this case ?session_id=123456789#anchor added by AuthGuard
+        // So that AdminDashboardComponenet can read and store them.
+        const navigationExtras: NavigationExtras = {
+        /**
+          * Check?? The queryParamsHandling feature also provides a merge option, which preserves and combines the
+          * current query parameters with any provided query parameters when navigating.
+          * The query params and fragment can also be preserved using a RouterLink with the queryParamsHandling and preserveFragment bindings respectively.
+          */
+          queryParamsHandling: 'preserve',
+          preserveFragment: true
+        };
 
-        // Redirect the user
-        this.router.navigate([redirectUrl]);
+        // Redirect the user to the redirectUrl ('/admin') with navigationExtras ('?session_id=123456789#anchor')
+        if(this.authService.redirectUrl)
+          this.router.navigate([this.authService.redirectUrl], navigationExtras);
       }
     });
   }
