@@ -24,8 +24,10 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
-    CrisisCenterModule,
-    AdminModule,
+    //CrisisCenterModule is removed since its preloaded.
+    //CrisisCenterModule,
+    //AdminModule is removed since its lazy loaded.
+    //AdminModule,
     AuthModule,
     //NOTE: AppRoutingModule import MUST come after the HeroesModule, CrisesModule etc. Since they have child routes.
     AppRoutingModule
@@ -37,4 +39,8 @@ import { AuthModule } from './auth/auth.module';
   ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    console.log('AppModule Loaded');
+  }
+}

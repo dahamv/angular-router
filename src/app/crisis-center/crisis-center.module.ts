@@ -23,4 +23,8 @@ import { CrisisCenterHomeComponent } from './crisis-center-home/crisis-center-ho
     CrisesCenterRoutingModule
   ]
 })
-export class CrisisCenterModule { }
+export class CrisisCenterModule {
+  constructor() {
+    console.log('CrisisCenterModule Loaded');
+  }
+}

@@ -15,4 +15,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     LoginComponent
   ]
 })
-export class AuthModule {}
+export class AuthModule {
+  constructor() {
+    console.log('AuthModule Loaded');
+  }
+}

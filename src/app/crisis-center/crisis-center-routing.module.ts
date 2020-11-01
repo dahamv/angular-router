@@ -17,7 +17,8 @@ import { CrisisDetailResolverService } from './crisis-detail-resolver.service';
 
 const crisisCenterRoutes: Routes = [
   {
-    path: 'crisis-center',
+    //This was path: 'crisis-center', first. But changed to add lazy/pre loading. Now the config is in AppRoutingModule.
+    path: '',
     //shown in AppComponenet <router-outlet>
     component: CrisisCenterComponent,
     /**

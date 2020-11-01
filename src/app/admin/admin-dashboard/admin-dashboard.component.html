@@ -4,3 +4,9 @@
 <p>Session ID: {{ sessionId | async }}</p>
 <a id="anchor"></a>
 <p>Fragment: {{ fragment | async }}</p>
+
+<hr>
+Preloaded Modules
+<ul>
+  <li *ngFor="let module of preloadedModules">{{ module }}</li>
+</ul>

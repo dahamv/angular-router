@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree, NavigationExtras } from '@angular/router';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree, NavigationExtras, CanLoad, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
     constructor(private authService: AuthService, private router: Router) {}
 
@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
      * if returns a UrlTree, user will be redirected to the given url (login page).
      */
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): true|UrlTree {
+      console.log("Can canActivate hit");
         //store the attempted URL the user came from. This should be the redirectURL
         const url: string = state.url;
         //Returning a UrlTree tells the Router to cancel the current navigation and schedule a new one to redirect the user.
@@ -30,11 +31,24 @@ export class AuthGuard implements CanActivate, CanActivateChild {
      */
     a = 0;
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): true|UrlTree {
+      console.log("Can canActivateChild hit");
       //Can do child specific checks.
       //if(this.a<1) {this.a++; return this.router.parseUrl('/heroes');}
 
       return this.canActivate(route, state);
     }
+
+    /**
+     * To be used for AdminModule route lazy loading to improve app loading time. You don't want to load
+     * AdminModule unless the user is an authorized use. Configuration is in AppRoutingModule
+     * Note: canLoad is called only once.
+     */
+    canLoad(route: Route): boolean | UrlTree {
+      console.log("Can load hit");
+      const url = `/${route.path}`;
+      return this.checkLogin(url);
+    }
+
 
     checkLogin(url: string): true|UrlTree {
 

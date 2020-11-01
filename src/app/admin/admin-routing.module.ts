@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './admin.component';
 import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -9,7 +9,8 @@ import { AuthGuard } from '../auth/auth.guard';
 //Compare with CrisisCenterRouterModule
 const adminRoutes: Routes = [
   {
-    path: 'admin',
+    //This was path: 'admin', first. But changed to add lazyloading. Now the config is in AppRoutingModule.
+    path: '',
     //shown in AppComponenet <router-outlet>
     component: AdminComponent,
     //canActivate guard is enough to guard AdminComponenet + all its child componenets.

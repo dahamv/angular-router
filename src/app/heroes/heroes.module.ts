@@ -19,4 +19,8 @@ import { HeroListComponent } from './hero-list/hero-list.component';
     HeroesRoutingModule
   ]
 })
-export class HeroesModule { }
+export class HeroesModule {
+  constructor() {
+    console.log('HeroesModule Loaded');
+  }
+}

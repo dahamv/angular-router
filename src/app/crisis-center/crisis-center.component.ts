@@ -14,7 +14,6 @@ export class CrisisCenterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
