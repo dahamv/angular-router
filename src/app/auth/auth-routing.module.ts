@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   //shown in AppComponenet <router-outlet>
-  { path: 'login', component: LoginComponent }
+  { path: '', component: LoginComponent }
 ];
 
 @NgModule({

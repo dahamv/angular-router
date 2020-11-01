@@ -28,7 +28,8 @@ import { AuthModule } from './auth/auth.module';
     //CrisisCenterModule,
     //AdminModule is removed since its lazy loaded.
     //AdminModule,
-    AuthModule,
+    //AuthModule is removed since its lazy loaded.
+    //AuthModule,
     //NOTE: AppRoutingModule import MUST come after the HeroesModule, CrisesModule etc. Since they have child routes.
     AppRoutingModule
   ],

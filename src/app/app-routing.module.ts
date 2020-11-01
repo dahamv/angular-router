@@ -42,6 +42,10 @@ const appRoutes: Routes = [
     loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
     data: { myAppPreload: true } //you can add anything to the data property of the route.
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+  },
   //HeroesModule should be eargerly loaded since its the first page.
   { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -76,8 +80,9 @@ const appRoutes: Routes = [
     RouterModule
   ],
   providers: [
+    //???????? You dont need this since the service is providedIn: root ???????
     //Provide this service so that it can be injected elsewhere in the app. (AdminDashboardComponent)
-    SelectivePreloadingStrategyService
+    //SelectivePreloadingStrategyService
   ]
 })
 export class AppRoutingModule {}
