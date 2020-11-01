@@ -42,6 +42,9 @@ const appRoutes: Routes = [
     loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule),
     data: { myAppPreload: true } //you can add anything to the data property of the route.
   },
+  /**
+   * AuthModule is also lazy loaded. But it will not be preloaded like CrisisCenterModule.
+   */
   {
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
