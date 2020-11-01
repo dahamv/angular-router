@@ -23,9 +23,11 @@ const appRoutes: Routes = [
    * 2) The lazy loading and re-configuration happen just once, when the route is first requested;
    *    the module and routes are available immediately for subsequent requests.
    * */
-  { path: 'admin',
+  {
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    canLoad: [AuthGuard] },
+    canLoad: [AuthGuard]
+  },
   /**
    * You could lazy load the Crisis Center. But you're almost certain that the user will visit the Crisis Center within minutes of launching the app.
    * Ideally, the app would launch with just the AppModule and the HeroesModule loaded and then, almost immediately,
