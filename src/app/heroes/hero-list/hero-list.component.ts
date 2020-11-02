@@ -18,19 +18,20 @@ export class HeroListComponent implements OnInit {
   selectedHero$: Observable<Hero>;
   //To highlight the selected item in the list
   selectedHeroId : number;
+  showChildComponent : boolean;
   heroes$: Observable<Hero[]>;
 
   constructor(private route: ActivatedRoute,
                 private heroService: HeroService, private messageService: MessageService) { }
 
   ngOnInit() {
+    console.log("HeroListComponenet: onInit() called");
     /**
      * To see difference between paramMap and snapshot.ParamMap methods.
      */
     this.heroes$ = this.getHeroes();
     this.selectedHero$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-
         //Handle both cases /heroes/15 and /heroes;hid=15;foo=foo
         let id = +params.get('id') || +params.get('hid');
         /**
@@ -39,13 +40,17 @@ export class HeroListComponent implements OnInit {
          * This is an Angular componenet lifecycle related error.
          * see https://stackoverflow.com/questions/9083594/call-settimeout-without-delay
          */
-        setTimeout(() => this.selectedHeroId = id);
+        setTimeout(() => { this.selectedHeroId = id;
+                           if(id)
+                              this.showChildComponent = true;});
+        
         return this.heroService.getHero(id);
       })
     );
   }
 
   onSelect(hero: Hero): void {
+    console.log(`HeroesComponent: Selected hero id=${hero.id}`);
     this.selectedHeroId = hero.id;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }

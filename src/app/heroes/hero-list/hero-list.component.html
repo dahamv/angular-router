@@ -10,5 +10,12 @@
   </li>
 </ul>
 <button routerLink="/sidekicks">Go to sidekicks</button>
-<h3> To see how paramMap works </h3>
-<app-hero-detail [hero$]="selectedHero$"></app-hero-detail>
+
+<!--Looks like there is a bug in angular. 
+    If I use <div *ngIf="selectedHeroId"> here and when selectedHeroId changes with onSelect() the this.route.paramMap.pipe(...) gets triggered again.
+,   Also the HeroListComponent onInit() is called twice anyway. Even without ngIf. Because of the child componenet I guess.
+    As mentioned in https://stackoverflow.com/questions/38787795/why-is-ngoninit-called-twice   used ngClass instead. -->
+<div [ngClass]="showChildComponent?'child-component-show':'child-component-hide'">
+  <h3> To see how paramMap works </h3>
+  <app-hero-detail [hero$]="selectedHero$"></app-hero-detail>
+</div>

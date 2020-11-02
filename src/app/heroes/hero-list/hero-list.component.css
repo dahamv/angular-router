@@ -1,3 +1,7 @@
+.child-component-show{ display: block; }
+
+.child-component-hide{ display: none; }
+
 /* HeroListComponent's private CSS styles */
 .heroes {
   margin: 0 0 2em 0;

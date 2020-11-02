@@ -21,8 +21,10 @@ export class HeroDetailComponent implements OnInit {
                 private service: HeroService) {}
 
   ngOnInit(): void {
-    //check if this componenet is created by router-outlet or the parent component.
-    this.navigatedByUrl = this.router.url.includes("/hero/");
+    //TODO: find a better way to check navigatedByUrl:boolean
+    //To handle /hero/12 => /superhero/12
+    //to prevent overiding hero$ check if this componenet is created by router-outlet(navigatedByUrl) or the parent component<app-hero-detail>.
+    this.navigatedByUrl = this.router.url.includes("/superhero/");
     if(this.navigatedByUrl) {
       const id = this.route.snapshot.paramMap.get('id');
       this. hero$ = this.service.getHero(id);
@@ -39,7 +41,9 @@ export class HeroDetailComponent implements OnInit {
        *
        * The optional route parameters are not separated by "?" and "&" as they would be in the URL query string.
        * They are separated by semicolons ";". This is matrix URL notation.
+       *
+       * NOTE: Redirects: using /heroes here doesn't work. But /heroes with routerLink works.
       */
-    this.router.navigate(['/heroes', { hid: heroId, foo: 'foo' }]);
+    this.router.navigate(['/superheroes', { hid: heroId, foo: 'foo' }]);
   }
 }

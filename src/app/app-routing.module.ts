@@ -49,8 +49,12 @@ const appRoutes: Routes = [
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
-  //HeroesModule should be eargerly loaded since its the first page.
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  /**
+   * HeroesModule should be eargerly loaded since its the first page.
+   * You can't have redirectTo: '/heroes' because the Router handles redirects once at each level of routing configuration.
+   * This prevents chaining of redirects, which can lead to endless redirect loops.
+   */
+  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
