@@ -4,14 +4,14 @@
     [class.selected]="hero.id === selectedHeroId"
     (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
-    <a  [routerLink]="['/hero', hero.id]"><span style="float: right" class="badge">go to</span></a>
-    <a [routerLink]="['/heroes', hero.id]"><span style="float: right" class="badge">see here</span></a>
+    <a  [routerLink]="['/angular-router/hero', hero.id]"><span style="float: right" class="badge">go to</span></a>
+    <a [routerLink]="['/angular-router/heroes', hero.id]"><span style="float: right" class="badge">see here</span></a>
 
   </li>
 </ul>
 <button routerLink="/sidekicks">Go to sidekicks</button>
 
-<!--Looks like there is a bug in angular. 
+<!--Looks like there is a bug in angular.
     If I use <div *ngIf="selectedHeroId"> here and when selectedHeroId changes with onSelect() the this.route.paramMap.pipe(...) gets triggered again.
 ,   Also the HeroListComponent onInit() is called twice anyway. Even without ngIf. Because of the child componenet I guess.
     As mentioned in https://stackoverflow.com/questions/38787795/why-is-ngoninit-called-twice   used ngClass instead. -->

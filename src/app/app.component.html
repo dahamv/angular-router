@@ -1,33 +1,3 @@
-<h1>Angular Router</h1>
-<nav>
-  <!--[routerLink] will evaluate what you pass to it as a JavaScript expression.
-      With no square brackets, it will take what you pass it as a literal string.
-      When you want to pass an array to routerLink or evaluate a variable, then you should use square brackets.-->
-  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <!--Configuring the 'compose' route to the "popup" outlet in app-routing-module isn't sufficient for connecting the route to a RouterLink directive.
-      You have to specify the named outlet in a link parameters array and bind it to the RouterLink with a property binding.
-      NOTE: you can target multiple outlets with multiple routes in the same RouterLink directive
-      The URL /crisis-center(popup:compose) => The secondary route in parentheses consists of an outlet name (popup),
-      a colon separator, and the secondary route path (compose).-->
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-</nav>
-<div [@heroesRouteAnimation]="getAnimationData(myRouterOutlet)">
-<!-- #myRouterOutlet is a reference variable so that we can refer to the <router-outlet> element.
-     In most cases, Angular sets the reference variable's value to the element on which it is declared.
-     But here the 'outlet'  template variable in the router-outlet is assigned. -->
-  <router-outlet #myRouterOutlet="outlet"></router-outlet>
-</div>
-<!--The router only supports one primary unnamed outlet per template. But a template can have multiple named outlets.
-    Each named outlet has its own set of routes with their own components.
-    Multiple outlets can display different content, determined by different routes, all at the same time.
+<h1>Angular Courses</h1>
 
-    Named outlets are the targets of secondary routes.
-    Secondary routes look like primary routes and you configure them the same way. They differ in a few key respects.
-
-      1. They are independent of each other.
-      2. They work in combination with other routes.
-      3. They are displayed in named outlets. -->
-<router-outlet name="popup"></router-outlet>
+<router-outlet></router-outlet>

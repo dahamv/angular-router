@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap, filter, map, mergeMap, tap } from 'rxjs/operators';
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
-import { MessageService } from 'src/app/message.service';
+import { MessageService } from 'src/app/angular-router/message.service';
 
 @Component({
   selector: 'app-crisis-list',

@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { CrisisService } from '../crisis.service';
 import { Observable } from 'rxjs';
 import { Crisis } from '../crisis';
-import { DialogService } from 'src/app/dialog.service';
+import { DialogService } from 'src/app/angular-router/dialog.service';
 
 @Component({
   selector: 'app-crisis-detail',

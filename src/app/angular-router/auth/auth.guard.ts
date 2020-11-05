@@ -17,9 +17,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
      * if returns a UrlTree, user will be redirected to the given url (login page).
      */
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): true|UrlTree {
-      console.log("Can canActivate hit");
+
         //store the attempted URL the user came from. This should be the redirectURL
         const url: string = state.url;
+        console.log("Can canActivate hit "+url);
         //Returning a UrlTree tells the Router to cancel the current navigation and schedule a new one to redirect the user.
         return this.checkLogin(url);
     }
@@ -44,8 +45,9 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
      * Note: canLoad is called only once.
      */
     canLoad(route: Route): boolean | UrlTree {
-      console.log("Can load hit");
+
       const url = `/${route.path}`;
+      console.log("Can load hit "+url);
       return this.checkLogin(url);
     }
 
@@ -54,7 +56,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
         if (this.authService.isLoggedIn) { return true; }
         // Store the attempted URL for redirecting
-        this.authService.redirectUrl = url;
+        this.authService.redirectUrl = '/angular-router'+url;
         // Create a dummy session id
         const sessionId = 123456789;
         // Set our navigation extras object that contains our global query params and fragment
@@ -64,6 +66,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
           fragment: 'anchor'
         };
         // Redirect to the login page. returns the created UrlTree
-        return this.router.createUrlTree(['/login'], navigationExtras);
+        return this.router.createUrlTree(['/angular-router/login'], navigationExtras);
     }
 }
