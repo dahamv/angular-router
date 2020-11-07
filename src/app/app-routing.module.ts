@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './angular-router/page-not-found/page-not-
 
 // AppModule is eagerly loaded. i.e. loaded right away when the app starts.
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/angular-router', pathMatch: 'full' },
+  { path: '',   redirectTo: '/angular-router/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -23,6 +23,7 @@ const appRoutes: Routes = [
          * Note:
          * The PreloadAllModules strategy does not load feature areas protected by a CanLoad guard.
          */
+
          // preloadingStrategy: PreloadAllModules
 
         /**

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree, NavigationExtras, CanLoad, Route } from '@angular/router';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree, NavigationExtras, CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -44,9 +44,12 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
      * AdminModule unless the user is an authorized use. Configuration is in AppRoutingModule
      * Note: canLoad is called only once.
      */
-    canLoad(route: Route): boolean | UrlTree {
 
-      const url = `/${route.path}`;
+    canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree {
+      /**
+       * Angular doesn't seem to provide a way to get the full url from Route. So have to concatnate /toh/
+       */
+      const url = `/angular-router/${route.path}`;
       console.log("Can load hit "+url);
       return this.checkLogin(url);
     }
@@ -56,7 +59,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
         if (this.authService.isLoggedIn) { return true; }
         // Store the attempted URL for redirecting
-        this.authService.redirectUrl = '/angular-router'+url;
+        this.authService.redirectUrl = url;
         // Create a dummy session id
         const sessionId = 123456789;
         // Set our navigation extras object that contains our global query params and fragment
@@ -67,5 +70,20 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
         };
         // Redirect to the login page. returns the created UrlTree
         return this.router.createUrlTree(['/angular-router/login'], navigationExtras);
+    }
+
+    //From https://stackoverflow.com/questions/50250361/how-to-elegantly-get-full-url-from-the-activatedroutesnapshot
+    getResolvedUrl(route: ActivatedRouteSnapshot): string {
+        return route.pathFromRoot
+            .map(v => v.url.map(segment => segment.toString()).join('/'))
+            .join('/');
+    }
+
+    getConfiguredUrl(route: ActivatedRouteSnapshot): string {
+        return '/' + route.pathFromRoot
+            .filter(v => v.routeConfig)
+            .map(v => v.routeConfig!.path)
+            .join('/')
+            .replace('//','/');
     }
 }

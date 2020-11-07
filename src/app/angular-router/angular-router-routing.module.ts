@@ -9,8 +9,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 import { AnglularRouterComponent } from "./angular-router.component"
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
-// AppModule is eagerly loaded. i.e. loaded right away when the app starts.
+// TourOfHeroesModule is eagerly loaded. i.e. loaded right away when the app starts.
 const appRoutes: Routes = [
+
        {
         path: 'angular-router',
         //shown in AnglularRouterComponent <router-outlet>
@@ -20,8 +21,7 @@ const appRoutes: Routes = [
         * not in the RouterOutlet of the AppComponent shell.
         */
         children: [
-            //{ path: 'crisis-center', component: CrisisListComponent },  //crisis-center routing handled by its feature componenet.
-            { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
+          { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
             /**
             * admin route is moved here from AdminRoutingModule to do lazy loading.
             * Now the root AppModule must neither load nor reference the AdminModule or its files.
@@ -60,26 +60,36 @@ const appRoutes: Routes = [
                 path: 'login',
                 loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
             },
-            {
-              path:'heroes',
-              children: [
-              // { path: 'heroes/:id', redirectTo: '/superheroes/:id' },
-              // { path: 'heroes', redirectTo: '/superheroes' },
-              // { path: 'hero/:id', redirectTo: '/superhero/:id' },
 
-                { path: '',  component: HeroListComponent, data: { animation: 'HeroesPage' } },
-                //Add HerosPage animation to this path as well since this is considered as a seperate route
-                { path: ':id', component: HeroListComponent, data: { animation: 'HeroesPage' } },
-                { path: 'hero/:id', component: HeroDetailComponent, data: { animation: 'HeroPage' } }
-              ]
-            },
             /**
-             * TODO: FIX THIS !!!!
-            * HeroesModule should be eargerly loaded since its the first page.
-            * You can't have redirectTo: '/heroes' because the Router handles redirects once at each level of routing configuration.
-            * This prevents chaining of redirects, which can lead to endless redirect loops.
-            */
-            { path: 'angular-router',   redirectTo: '/angular-router/heroes', pathMatch: 'full' }
+             * shown in TourOfHeroesComponenet <router-outlet>
+             * changing /heroes to /superheroes
+             * Redirects
+             * ----------
+             * Redirects are useful when you want /heroes to work as well
+             * The Router also supports query parameters and the fragment when using redirects.
+             * Using /heroes and /hero in routerLink (AppComponenet and HeroListComponenet templates) works. But docs say no
+             * https://angular.io/guide/router-tutorial-toh#changing-heroes-to-superheroes
+             * But this.router.navigate(['/heroes' .....) in HeroDetailComponenet doesn't work.
+             *
+             * NOTE: Redirecting is supported for only one level. To prevent the possibility of endless redirect loops.
+             * NOTE: in child module routes, you shouldn't have the leading '/' like redirectTo: '/superheroes/:id'. Remove '/'
+             */
+            { path: 'heroes/:id', redirectTo: 'superheroes/:id' },
+            { path: 'heroes', redirectTo: 'superheroes' },
+            { path: 'hero/:id', redirectTo: 'superhero/:id' },
+            /**
+             * With Eager Loading, we cannot move Heroes routing configuration into the Heroes module (grand child).
+             * Couldn't get an ansewer for my question
+             * https://stackoverflow.com/questions/64696851/proper-route-configuration-for-eager-loading-grand-child-components-angular-10
+             */
+            { path: 'superheroes',  component: HeroListComponent, data: { animation: 'HeroesPage' } },
+            //Add HerosPage animation to this path as well since this is considered as a seperate route
+            { path: 'superheroes/:id', component: HeroListComponent, data: { animation: 'HeroesPage' } },
+            { path: 'superhero/:id', component: HeroDetailComponent, data: { animation: 'HeroPage' } }
+
+
+           // { path: '',   redirectTo: 'superheroes', pathMatch: 'prefix' }
         ]
 
   }
