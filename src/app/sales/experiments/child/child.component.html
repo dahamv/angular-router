@@ -1,0 +1,13 @@
+<h2>Child Componenet</h2>
+<br/>
+<a class="btn" (click)="change1FromChild()">Change 1 from child</a>
+<span>First parent input from child: <span class="badge badge-light">{{firstParentInput}}</span></span>
+<br/>
+<label>Another way to change 1 from child</label>
+<!--So data binding can be done from the Child as well as the Parent componenet
+    But to send data from Parent to Child you have to use @input in child -->
+<input type="text" placeholder="Enter some number" [value]="firstParentInput" (input)="firstParentInput=$event.target.value" />
+<br/>
+<a class="btn" (click)="change2FromChild()">Change 2 from child</a>
+<span>Second parent input from child: <span class="badge badge-light">{{secondParentInput}}</span></span>
+<br/>
