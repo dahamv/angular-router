@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { SelectivePreloadingStrategyService } from './angular-router/selective-preloading-strategy.service';
-import { PageNotFoundComponent } from './angular-router/page-not-found/page-not-found.component';
+import { SelectivePreloadingStrategyService } from './tour-of-heroes/selective-preloading-strategy.service';
+import { PageNotFoundComponent } from './tour-of-heroes/page-not-found/page-not-found.component';
 
 // AppModule is eagerly loaded. i.e. loaded right away when the app starts.
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/angular-router/superheroes', pathMatch: 'full' },
+  { path: '',   redirectTo: '/toh/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

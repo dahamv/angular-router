@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 
 import { Crisis } from './crisis';
 import { CRISES } from './mock-crises';
-import { MessageService } from '../message.service';
 import { map, delay } from 'rxjs/operators';
 
 @Injectable({
@@ -12,11 +11,9 @@ import { map, delay } from 'rxjs/operators';
 })
 export class CrisisService {
 
-  constructor(private messageService: MessageService) { }
+  constructor() { }
 
   getCrises(): Observable<Crisis[]> {
-    // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('CrisisService: fetched crises');
     return of(CRISES);
   }
 

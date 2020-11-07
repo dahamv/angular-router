@@ -7,15 +7,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
-import { AnglularRouterComponent } from "./angular-router.component"
+import { TourOfHeroesComponent } from "./toh.component"
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
 // TourOfHeroesModule is eagerly loaded. i.e. loaded right away when the app starts.
 const appRoutes: Routes = [
 
        {
-        path: 'angular-router',
+        path: 'toh',
         //shown in AnglularRouterComponent <router-outlet>
-        component: AnglularRouterComponent,
+        component: TourOfHeroesComponent,
         /**
         * CrisisCenterComponent <router-outlet> loads the child componenet CrisisListComponent.
         * not in the RouterOutlet of the AppComponent shell.
@@ -109,4 +109,4 @@ const appRoutes: Routes = [
     //SelectivePreloadingStrategyService
   ]
 })
-export class AngularRouterRoutingModule { }
+export class TourOfHeroesRoutingModule { }

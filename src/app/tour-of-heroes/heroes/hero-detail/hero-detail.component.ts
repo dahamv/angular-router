@@ -44,6 +44,6 @@ export class HeroDetailComponent implements OnInit {
        *
        * NOTE: Redirects: using /heroes here doesn't work. But /heroes with routerLink works.
       */
-    this.router.navigate(['/angular-router/superheroes', { hid: heroId, foo: 'foo' }]);
+    this.router.navigate(['/toh/superheroes', { hid: heroId, foo: 'foo' }]);
   }
 }

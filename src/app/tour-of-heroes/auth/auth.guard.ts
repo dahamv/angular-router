@@ -49,7 +49,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
       /**
        * Angular doesn't seem to provide a way to get the full url from Route. So have to concatnate /toh/
        */
-      const url = `/angular-router/${route.path}`;
+      const url = `/toh/${route.path}`;
       console.log("Can load hit "+url);
       return this.checkLogin(url);
     }
@@ -69,21 +69,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
           fragment: 'anchor'
         };
         // Redirect to the login page. returns the created UrlTree
-        return this.router.createUrlTree(['/angular-router/login'], navigationExtras);
-    }
-
-    //From https://stackoverflow.com/questions/50250361/how-to-elegantly-get-full-url-from-the-activatedroutesnapshot
-    getResolvedUrl(route: ActivatedRouteSnapshot): string {
-        return route.pathFromRoot
-            .map(v => v.url.map(segment => segment.toString()).join('/'))
-            .join('/');
-    }
-
-    getConfiguredUrl(route: ActivatedRouteSnapshot): string {
-        return '/' + route.pathFromRoot
-            .filter(v => v.routeConfig)
-            .map(v => v.routeConfig!.path)
-            .join('/')
-            .replace('//','/');
+        return this.router.createUrlTree(['/toh/login'], navigationExtras);
     }
 }

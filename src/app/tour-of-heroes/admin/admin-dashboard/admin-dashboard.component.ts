@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { SelectivePreloadingStrategyService } from 'src/app/angular-router/selective-preloading-strategy.service';
+import { SelectivePreloadingStrategyService } from '../../selective-preloading-strategy.service';
 
 @Component({
   selector: 'app-admin-dashboard',

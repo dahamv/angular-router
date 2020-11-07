@@ -6,14 +6,14 @@ import { RouterModule, Routes, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularRouterModule } from './angular-router/angular-router.module';
+import { TourOfHeroesModule } from './tour-of-heroes/toh.module';
 
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    AngularRouterModule,
+    TourOfHeroesModule,
     AppRoutingModule
   ],
   declarations: [

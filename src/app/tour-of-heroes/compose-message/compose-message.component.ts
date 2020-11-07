@@ -30,6 +30,6 @@ export class ComposeMessageComponent {
   closePopup() {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate(['angular-router',{ outlets: { popup: null }}]);
+    this.router.navigate(['toh',{ outlets: { popup: null }}]);
   }
 }

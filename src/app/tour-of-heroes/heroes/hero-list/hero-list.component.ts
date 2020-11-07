@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../../message.service';
 import { of } from 'rxjs/internal/observable/of';
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -22,7 +21,7 @@ export class HeroListComponent implements OnInit {
   heroes$: Observable<Hero[]>;
 
   constructor(private route: ActivatedRoute,
-                private heroService: HeroService, private messageService: MessageService) { }
+                private heroService: HeroService) { }
 
   ngOnInit() {
     console.log("HeroListComponenet: onInit() called");
@@ -43,7 +42,7 @@ export class HeroListComponent implements OnInit {
         setTimeout(() => { this.selectedHeroId = id;
                            if(id)
                               this.showChildComponent = true;});
-        
+
         return this.heroService.getHero(id);
       })
     );
@@ -52,7 +51,6 @@ export class HeroListComponent implements OnInit {
   onSelect(hero: Hero): void {
     console.log(`HeroesComponent: Selected hero id=${hero.id}`);
     this.selectedHeroId = hero.id;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
   getHeroes(): Observable<Hero[]> {

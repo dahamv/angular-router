@@ -1,7 +1,7 @@
 <ul class="crises">
   <li *ngFor="let crisis of crises$ | async"
     [class.selected]="crisis.id === selectedCrisisId">
-    <a [routerLink]="['/angular-router/crisis-center', crisis.id]">
+    <a [routerLink]="['/toh/crisis-center', crisis.id]">
       <span class="badge">{{ crisis.id }}</span>{{ crisis.name }}
     </a>
   </li>

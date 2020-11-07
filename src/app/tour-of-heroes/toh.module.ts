@@ -13,13 +13,13 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
-import { AngularRouterRoutingModule } from './angular-router-routing.module';
-import { AnglularRouterComponent } from './angular-router.component';
+import { TourOfHeroesRoutingModule } from './toh-routing.module';
+import { TourOfHeroesComponent } from './toh.component';
 
 
 @NgModule({
   declarations: [
-    AnglularRouterComponent,
+    TourOfHeroesComponent,
     PageNotFoundComponent,
     ComposeMessageComponent
   ],
@@ -33,21 +33,15 @@ import { AnglularRouterComponent } from './angular-router.component';
     //AdminModule,
     //AuthModule is removed since its lazy loaded.
     //AuthModule,
-    //NOTE: AngularRouterRoutingModule import MUST come after the HeroesModule, CrisesModule etc. Since they have child routes.
-    AngularRouterRoutingModule  
+    //NOTE: TourOfHeroesRoutingModule import MUST come after the HeroesModule, CrisesModule etc. Since they have child routes.
+    TourOfHeroesRoutingModule
   ]
 })
-export class AngularRouterModule {
+export class TourOfHeroesModule {
     constructor(router: Router) {
-    console.log('AngularRouterModule Loaded');
-    /**
-     * Diagnostic only: inspect router configuration
-     * To determine if your routes are actually evaluated in the proper order, you can inspect the router's configuration. 
-     * Do this by injecting the router and logging to the console its config property. For example, update the AppModule as follows 
-     * and look in the browser console window to see the finished route configuration.
-     * Here we use a custom replacer to display function names in the route configs
-     */ 
-    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
-    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
-  }
+      console.log('TourOfHeroesModule Loaded');
+      //As mentioned in the AppModule, we can see the entire route configuration for this module.
+      const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+      console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+    }
  }

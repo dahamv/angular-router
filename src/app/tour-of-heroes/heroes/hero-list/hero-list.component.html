@@ -4,8 +4,8 @@
     [class.selected]="hero.id === selectedHeroId"
     (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
-    <a  [routerLink]="['/angular-router/hero', hero.id]"><span style="float: right" class="badge">go to</span></a>
-    <a [routerLink]="['/angular-router/heroes', hero.id]"><span style="float: right" class="badge">see here</span></a>
+    <a  [routerLink]="['/toh/hero', hero.id]"><span style="float: right" class="badge">go to</span></a>
+    <a [routerLink]="['/toh/heroes', hero.id]"><span style="float: right" class="badge">see here</span></a>
 
   </li>
 </ul>

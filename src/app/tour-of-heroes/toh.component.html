@@ -1,12 +1,12 @@
-<h1>Angular Router</h1>
+<h1>Tour Of Heroes</h1>
 <nav>
   <!--[routerLink] will evaluate what you pass to it as a JavaScript expression.
       With no square brackets, it will take what you pass it as a literal string.
       When you want to pass an array to routerLink or evaluate a variable, then you should use square brackets.-->
-  <a routerLink="/angular-router/crisis-center" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="/angular-router/heroes" routerLinkActive="active">Heroes</a>
-  <a routerLink="/angular-router/admin" routerLinkActive="active">Admin</a>
-  <a routerLink="/angular-router/login" routerLinkActive="active">Login</a>
+  <a routerLink="/toh/crisis-center" routerLinkActive="active">Crisis Center</a>
+  <a routerLink="/toh/heroes" routerLinkActive="active">Heroes</a>
+  <a routerLink="/toh/admin" routerLinkActive="active">Admin</a>
+  <a routerLink="/toh/login" routerLinkActive="active">Login</a>
   <!--Configuring the 'compose' route to the "popup" outlet in app-routing-module isn't sufficient for connecting the route to a RouterLink directive.
       You have to specify the named outlet in a link parameters array and bind it to the RouterLink with a property binding.
       NOTE: you can target multiple outlets with multiple routes in the same RouterLink directive

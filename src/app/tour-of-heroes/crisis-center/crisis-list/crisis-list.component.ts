@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { switchMap, filter, map, mergeMap, tap } from 'rxjs/operators';
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
-import { MessageService } from 'src/app/angular-router/message.service';
 
 @Component({
   selector: 'app-crisis-list',
@@ -19,7 +18,7 @@ export class CrisisListComponent implements OnInit {
   crises$: Observable<Crisis[]>;
 
   constructor(private route: ActivatedRoute, private router: Router,
-                private crisisService: CrisisService, private messageService: MessageService) { }
+                private crisisService: CrisisService) { }
 
   ngOnInit() {
     /**
@@ -71,7 +70,6 @@ export class CrisisListComponent implements OnInit {
 
   onSelect(crisis: Crisis): void {
     this.selectedCrisisId = crisis.id;
-    this.messageService.add(`CrisisLIstComponent: Selected crisis id=${crisis.id}`);
   }
 
   getCrises(): Observable<Crisis[]> {

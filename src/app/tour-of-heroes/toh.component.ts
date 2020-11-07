@@ -4,11 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 
 @Component({
-  selector: 'app-angular-router',
-  templateUrl: './angular-router.component.html',
+  selector: 'app-toh',
+  templateUrl: './toh.component.html',
   animations: [ slideInAnimation ]
 })
-export class AnglularRouterComponent {
+export class TourOfHeroesComponent {
   getAnimationData(outlett: RouterOutlet) {
     return outlett && outlett.activatedRouteData && outlett.activatedRouteData.animation;
   }
