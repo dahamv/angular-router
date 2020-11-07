@@ -7,12 +7,13 @@
   <a routerLink="/toh/heroes" routerLinkActive="active">Heroes</a>
   <a routerLink="/toh/admin" routerLinkActive="active">Admin</a>
   <a routerLink="/toh/login" routerLinkActive="active">Login</a>
-  <!--Configuring the 'compose' route to the "popup" outlet in app-routing-module isn't sufficient for connecting the route to a RouterLink directive.
-      You have to specify the named outlet in a link parameters array and bind it to the RouterLink with a property binding.
+  <!--For 'compose-message' secondary (auxiliary) route to work, you have to specify the named outlet in a link parameters array and
+      bind it to the RouterLink with a property binding. So thats its there in the URL.
       NOTE: you can target multiple outlets with multiple routes in the same RouterLink directive
-      The URL /crisis-center(popup:compose) => The secondary route in parentheses consists of an outlet name (popup),
-      a colon separator, and the secondary route path (compose).-->
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+      The URL /crisis-center(popup:compose-message) => The secondary route in parentheses consists of an outlet name (popup),
+      a colon separator, and the secondary route path (compose).
+      TODO: ???? BUT the URL is show like this (crisis-center//popup:compose-message) ???????-->
+  <a [routerLink]="[{ outlets: { popup: ['compose-message'] } }]">Contact</a>
 </nav>
 <div [@heroesRouteAnimation]="getAnimationData(myRouterOutlet)">
 <!-- #myRouterOutlet is a reference variable so that we can refer to the <router-outlet> element.

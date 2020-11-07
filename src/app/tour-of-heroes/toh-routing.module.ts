@@ -14,14 +14,14 @@ const appRoutes: Routes = [
 
        {
         path: 'toh',
-        //shown in AnglularRouterComponent <router-outlet>
+        //shown in TourOfHeroesComponent <router-outlet>
         component: TourOfHeroesComponent,
         /**
         * CrisisCenterComponent <router-outlet> loads the child componenet CrisisListComponent.
         * not in the RouterOutlet of the AppComponent shell.
         */
         children: [
-          { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
+          { path: 'compose-message', component: ComposeMessageComponent, outlet: 'popup' },
             /**
             * admin route is moved here from AdminRoutingModule to do lazy loading.
             * Now the root AppModule must neither load nor reference the AdminModule or its files.
@@ -87,9 +87,6 @@ const appRoutes: Routes = [
             //Add HerosPage animation to this path as well since this is considered as a seperate route
             { path: 'superheroes/:id', component: HeroListComponent, data: { animation: 'HeroesPage' } },
             { path: 'superhero/:id', component: HeroDetailComponent, data: { animation: 'HeroPage' } }
-
-
-           // { path: '',   redirectTo: 'superheroes', pathMatch: 'prefix' }
         ]
 
   }
@@ -102,11 +99,6 @@ const appRoutes: Routes = [
   //have access to router directives such as RouterLink and RouterOutlet.
   exports: [
     RouterModule
-  ],
-  providers: [
-    //???????? You dont need this since the service is providedIn: root ???????
-    //Provide this service so that it can be injected elsewhere in the app. (AdminDashboardComponent)
-    //SelectivePreloadingStrategyService
   ]
 })
 export class TourOfHeroesRoutingModule { }

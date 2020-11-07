@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TourOfHeroesModule } from './tour-of-heroes/toh.module';
 
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -18,8 +16,6 @@ import { TourOfHeroesModule } from './tour-of-heroes/toh.module';
   ],
   declarations: [
     AppComponent,
-    //PageNotFoundComponent,
-    //ComposeMessageComponent
   ],
   bootstrap: [ AppComponent ]
 })
