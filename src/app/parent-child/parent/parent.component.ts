@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-experiments-parent',
-  templateUrl: './parent.component.html'
+  templateUrl: './parent.component.html',
+  styleUrls: ['../parent-child.component.scss']
 })
 export class ParentComponent implements OnInit {
 

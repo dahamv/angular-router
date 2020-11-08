@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-sizer',
-  templateUrl: './sizer.component.html',
-  styles: [
-  ]
+  selector: 'app-font-sizer',
+  templateUrl: './font-sizer.component.html',
+  styleUrls: ['../parent-child.component.scss']
 })
-export class SizerComponent implements OnInit {
+export class FontSizerComponent implements OnInit {
 
   constructor() { }
 

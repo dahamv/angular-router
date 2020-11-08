@@ -2,7 +2,8 @@ import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/cor
 
 @Component({
   selector: 'app-child',
-  templateUrl: './child.component.html'
+  templateUrl: './child.component.html',
+  styleUrls: ['../parent-child.component.scss']
 })
 export class ChildComponent implements OnInit ,  OnChanges{
 

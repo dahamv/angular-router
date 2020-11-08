@@ -1,5 +1,15 @@
 <h2>Parent Componenet</h2>
-<h3>ngOnChange demo</h3>
+
+<h3>ngModel demo</h3>
+<input [(ngModel)]="name" #ctrl="ngModel" required>
+<p>Value: {{ name }}</p>
+<p>Valid: {{ ctrl.valid }}</p>
+<button (click)="setValue()">Set value</button>
+<br/>
+
+<br>
+
+<h3>ngOnChange demo with child component</h3>
 <div class="d-flex p-3 bg-secondary text-white">
   <div class="p-2 bg-info flex-fill">
     <a class="btn bg-secondary" (click)="change1FromParent()">Change 1 from parent</a>
@@ -13,24 +23,19 @@
   </div>
 </div>
 
-<h3>ngModel demo</h3>
-<input [(ngModel)]="name" #ctrl="ngModel" required>
+<br>
 
-<p>Value: {{ name }}</p>
-<p>Valid: {{ ctrl.valid }}</p>
-
-<button (click)="setValue()">Set value</button>
-<br/>
-<h3 id="two-way">Two-way Binding</h3>
+<h3>Font sizing demo with child-font-sizer component</h3>
+<h4 id="two-way">Two-way Binding</h4>
 <div id="two-way-1">
-  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <app-font-sizer [(size)]="fontSizePx"></app-font-sizer>
   <div [style.font-size.px]="fontSizePx">Resizable Text</div>
   <label>NgModel changes parents fontSizePx: <input [(ngModel)]="fontSizePx"></label>
 </div>
 <br>
 <div id="two-way-2">
-  <h2>Old way two-way binding</h2>
-  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+  <h4>Old way two-way binding</h4>
+  <app-font-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-font-sizer>
   <span>From Parent - Font size: {{fontSizePx}}</span>
 </div>
 

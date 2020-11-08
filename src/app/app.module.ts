@@ -8,14 +8,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TourOfHeroesModule } from './tour-of-heroes/toh.module';
 import { SalesModule } from './sales/sales.module';
-import { ExperimentsModule } from './experiments/experiments.module';
+import { ParentChildModule } from './parent-child/parent-child.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     SalesModule,
     TourOfHeroesModule,
-    ExperimentsModule,
+    ParentChildModule,
     AppRoutingModule
   ],
   declarations: [
