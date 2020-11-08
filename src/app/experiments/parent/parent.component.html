@@ -1,0 +1,39 @@
+<h2>Parent Componenet</h2>
+<h3>ngOnChange demo</h3>
+<div class="d-flex p-3 bg-secondary text-white">
+  <div class="p-2 bg-info flex-fill">
+    <a class="btn bg-secondary" (click)="change1FromParent()">Change 1 from parent</a>
+    <br/>
+    <a class="btn bg-secondary" (click)="change2FromParent()">Change 2 from parent</a>
+    <br/>
+
+  </div>
+  <div class="p-2 bg-warning flex-fill">
+    <app-child [firstParentInput]="data1" [secondParentInput]="data2"></app-child>
+  </div>
+</div>
+
+<h3>ngModel demo</h3>
+<input [(ngModel)]="name" #ctrl="ngModel" required>
+
+<p>Value: {{ name }}</p>
+<p>Valid: {{ ctrl.valid }}</p>
+
+<button (click)="setValue()">Set value</button>
+<br/>
+<h3 id="two-way">Two-way Binding</h3>
+<div id="two-way-1">
+  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+  <label>NgModel changes parents fontSizePx: <input [(ngModel)]="fontSizePx"></label>
+</div>
+<br>
+<div id="two-way-2">
+  <h2>Old way two-way binding</h2>
+  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+  <span>From Parent - Font size: {{fontSizePx}}</span>
+</div>
+
+
+
+
