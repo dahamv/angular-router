@@ -7,11 +7,15 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TourOfHeroesModule } from './tour-of-heroes/toh.module';
+import { SalesModule } from './sales/sales.module';
+import { ExperimentsModule } from './experiments/experiments.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    SalesModule,
     TourOfHeroesModule,
+    ExperimentsModule,
     AppRoutingModule
   ],
   declarations: [

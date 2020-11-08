@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
-import { ICustomer } from 'src/app/shared/interfaces';
-import { SorterService } from 'src/app/core/sorter.service';
+import { ICustomer } from '../../shared/interfaces';
+import { SorterService } from '../../core/sorter.service';
 
 @Component({
   selector: 'app-customers-list',
-  templateUrl: './customers-list.component.html'
+  templateUrl: './customers-list.component.html',
+  styleUrls: ['../../sales.styles.scss']
 })
 export class CustomersListComponent implements OnInit {
 

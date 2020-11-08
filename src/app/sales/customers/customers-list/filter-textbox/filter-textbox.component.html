@@ -1,4 +1,4 @@
-<label class="btn bg-primary">Filter with ngModel:</label>
+<label  style="margin: 10px" class="btn bg-primary">Filter with ngModel:</label>
 
 <!--
   ngModel is the same as
@@ -8,6 +8,6 @@
   -->
 <input type="text" [(ngModel)]="filterString">
 
-<label class="btn bg-primary">Filter with event binding:</label>
+<label style="margin: 10px" class="btn bg-primary">Filter with event binding:</label>
 <input  type="text" (input)="setFilterString($event.target.value)">
 

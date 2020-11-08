@@ -5,7 +5,8 @@ import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'app-customers',
-  templateUrl: './customers.component.html'
+  templateUrl: './customers.component.html',
+  styleUrls: ['../sales.styles.scss']
 })
 export class CustomersComponent implements OnInit {
 

@@ -6,8 +6,7 @@ import { OrdersModule } from './orders.module';
 
 
 const routes: Routes = [
-    //pass customerId as a route parameter. OrdersComponenet can get the parameter through ActivatedRoute service.
-    { path: 'orders/:id', component: OrdersComponent }
+
 ];
 
 @NgModule({

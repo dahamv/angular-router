@@ -6,7 +6,7 @@ import { IOrder, ICustomer } from '../shared/interfaces';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['../sales.styles.scss']
 })
 export class OrdersComponent implements OnInit {
 

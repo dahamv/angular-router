@@ -12,7 +12,7 @@
         <td>
             <!--See the list of angular pipes: https://angular.io/api?type=pipe -->
             <!--capitalize is the custom pipe. Its the same as angular pipe titlecase-->
-            <a [routerLink]="['/orders', cust.id]"> {{cust.name | capitalize}} </a>
+            <a [routerLink]="['/sales/orders', cust.id]"> {{cust.name | capitalize}} </a>
         </td>
         <td>{{cust.city}}</td>
         <!--can pass parameters into currency pipe-->
@@ -26,6 +26,6 @@
         <td colspan="4"><span class="badge bg-secondary">No customers found</span></td>
     </tr>
 </table>
-<span class="badge bg-secondary">Number of Customers:</span> <span>{{filteredCustomers.length}}</span>
+<span>Number of Customers : </span> <span> {{filteredCustomers.length}}</span>
 <br />
 
