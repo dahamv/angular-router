@@ -7,15 +7,14 @@ import { SalesComponent } from './sales.component';
 import { SharedModule } from './shared/shared.module';
 import { OrdersModule } from './orders/orders.module';
 import { SalesRoutingModule } from './sales-routing.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     SalesComponent
   ],
   imports: [
-    //This module provides directives.
-    BrowserModule,
-
+    CommonModule,
     //importing core module from app module is enough since its the root module.
     //No need other modules import core module.
     CoreModule,

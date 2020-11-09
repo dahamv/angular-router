@@ -7,7 +7,7 @@ import { CustomersComponent } from './customers/customers.component';
 const routes: Routes = [
 
        {
-        path: 'sales',
+        path: '',
         //shown in TourOfHeroesComponent <router-outlet>
         component: SalesComponent,
         /**

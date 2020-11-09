@@ -13,13 +13,11 @@ import { ParentChildModule } from './parent-child/parent-child.module';
 @NgModule({
   imports: [
     BrowserModule,
-    SalesModule,
     TourOfHeroesModule,
-    ParentChildModule,
     AppRoutingModule
   ],
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })
