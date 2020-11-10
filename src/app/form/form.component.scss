@@ -1,0 +1,26 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+/**
+The NgModel directive on a control tracks the state of that control. It tells you if the user touched the control,
+if the value changed, or if the value became invalid. Angular sets special CSS classes on the control element
+to reflect the state, as shown in the following table.
++----------------------------------+---------------+----------------+
+|              State               | class if true | class if false |
++----------------------------------+---------------+----------------+
+| The control has been visited.    | ng-touched    | ng-untouched   |
+| The control's value has changed. | ng-dirty      | ng-pristine    |
+| The control's value is valid.    | ng-valid      | ng-invalid     |
++----------------------------------+---------------+----------------+
+
+You can see in developer tools how angular addes these classes in the DOM element. Inspect the <input> element that represents the hero name.
+*/
+
+//Select elements with class="ng-valid" with a required attribute AND
+//Select elements with class="ng-valid required"
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+//Select elements with class="ng-invalid" that is not a <form> element
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
