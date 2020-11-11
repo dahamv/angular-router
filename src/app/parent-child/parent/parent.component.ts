@@ -22,13 +22,6 @@ export class ParentComponent implements OnInit {
     this.data2 += 1;
   }
 
-  //To see how ngModel works
-  name: string = '';
-
-  setValue() {
-    this.name = 'Nancy';
-  }
-
   //To see how two way databinding works
   fontSizePx = 16;
 }

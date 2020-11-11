@@ -2,17 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DirectivesComponent } from './directives.component';
 import { DirectivesRoutingModule } from './directives-routing.module';
-import { HighlightDirective } from './highlight.directive';
-import { WordLengthDetectorDirective } from './word-length-detector.directive';
-import { SharkDirective } from './shark.directive';
-import { ChildComponent } from './child/child.component';
-import { PaneDirective } from './pane.directive';
+import { AttributeDirectiveComponent } from './attribute/attribute-directive.component';
+import { HighlightDirective } from './attribute/highlight.directive';
+import { WordLengthDetectorDirective } from './attribute/word-length-detector.directive';
+import { SharkDirective } from './attribute/shark.directive';
+import { ChildComponent } from './attribute/child/child.component';
+import { PaneDirective } from './attribute/pane.directive';
+import { FormsModule } from '@angular/forms';
+import { NgModelComponent } from './ng-model/ng-model.component';
 
 
 
 @NgModule({
-  declarations: [DirectivesComponent, HighlightDirective, WordLengthDetectorDirective, SharkDirective, ChildComponent, PaneDirective],
+  declarations: [
+      DirectivesComponent,
+      AttributeDirectiveComponent,
+      HighlightDirective,
+      WordLengthDetectorDirective,
+      SharkDirective,
+      ChildComponent,
+      PaneDirective,
+      NgModelComponent],
   imports: [
+    FormsModule,
     CommonModule,
     DirectivesRoutingModule
   ]

@@ -1,13 +1,4 @@
-<h2>Parent Componenet</h2>
-
-<h3>ngModel demo</h3>
-<input [(ngModel)]="name" #ctrl="ngModel" required>
-<p>Value: {{ name }}</p>
-<p>Valid: {{ ctrl.valid }}</p>
-<button (click)="setValue()">Set value</button>
-<br/>
-
-<br>
+<h2>Parent Componenet @Input() @Output()</h2>
 
 <h3>ngOnChange demo with child component</h3>
 <div class="d-flex p-3 bg-secondary text-white">
@@ -25,7 +16,7 @@
 
 <br>
 
-<h3>Font sizing demo with child-font-sizer component</h3>
+<h3>NgModel and [(size)] with child-font-sizer component</h3>
 <h4 id="two-way">Two-way Binding</h4>
 <div id="two-way-1">
   <app-font-sizer [(size)]="fontSizePx"></app-font-sizer>

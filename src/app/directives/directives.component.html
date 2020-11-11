@@ -1,40 +1,6 @@
-<div style="margin-top:10px">
-    <label>This is a label element without Hightlight Directive</label>
-    <br/>
-    <label appHighlight>This is a label element with Hightlight Directive</label>
-</div>
-
-<div style="margin-top:10px">
-<table>
-    <tr>
-       <td>
-         <label>Please enter a long word :-</label>
-       </td>
-       <td>
-         <input type="text" appWordLengthDetector />
-       </td>
-    </tr>
-</table>
-</div>
-
-<h3>Sharks Directive with @ViewChild</h3>
-
-<div style="margin-top:10px">
-  <label>Add Shark infront: </label><span appShark>Fin!</span>
-</div>
-
-<div style="margin-top:10px">
-  <label>SDOM element value set : </label><input #seaCreatureInput>
-  <p>Reference Read from Shark Directive : {{refFromSharkDirective}}</p>
-  <app-child></app-child>
-  <p>Child Componenet method called : {{valueFromChild}}</p>
-</div>
-
-
-<h3>Pane Directive</h3>
-<appPane id="1"></appPane>
-<appPane id="2"></appPane>
-<appPane id="3"></appPane>
-<appPane id="4" *ngIf="shouldShow"></appPane>
-<button (click)="show()">Show 4</button>
-<div>panes: {{serializedPanes}}</div>
+<nav>
+  <a routerLink="/directives/ng-model" routerLinkActive="active">Ng Model</a>
+  <a routerLink="/directives/attribute" routerLinkActive="active">Attribute Directive</a>
+  <a routerLink="/directives/structural" routerLinkActive="active">Structural Directive</a>
+</nav>
+<router-outlet></router-outlet>
