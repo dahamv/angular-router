@@ -1,6 +1,7 @@
 import { Directive, Input } from '@angular/core';
 
 @Directive({
+  // Here no brackets. Why?. Brackets define a CSS attribute selector
   selector: 'appPane'
 })
 export class PaneDirective {

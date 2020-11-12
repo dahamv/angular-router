@@ -8,8 +8,10 @@ import { WordLengthDetectorDirective } from './attribute/word-length-detector.di
 import { SharkDirective } from './attribute/shark.directive';
 import { ChildComponent } from './attribute/child/child.component';
 import { PaneDirective } from './attribute/pane.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModelComponent } from './ng-model/ng-model.component';
+import { UnlessDirective } from './structural/unless.directive';
+import { StructuralDirectiveComponent } from './structural/structural-directive.component';
 
 
 
@@ -22,9 +24,13 @@ import { NgModelComponent } from './ng-model/ng-model.component';
       SharkDirective,
       ChildComponent,
       PaneDirective,
-      NgModelComponent],
+      NgModelComponent,
+      UnlessDirective,
+      StructuralDirectiveComponent
+    ],
   imports: [
     FormsModule,
+    //ReactiveFormsModule,
     CommonModule,
     DirectivesRoutingModule
   ]

@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, HostListener } from '@angular/core';
 
 @Directive({
+  // The brackets define a CSS attribute selector
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
@@ -9,6 +10,7 @@ export class HighlightDirective {
 
   @Input() defaultColor: string;
 
+  //How appHighlight is bound to the alias highlightColor
   @Input('appHighlight') highlightColor: string;
 
   @HostListener('mouseenter') onMouseEnter() {

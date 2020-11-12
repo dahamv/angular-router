@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DirectivesComponent } from './directives.component';
 import { AttributeDirectiveComponent } from './attribute/attribute-directive.component';
 import { NgModelComponent } from './ng-model/ng-model.component';
+import { StructuralDirectiveComponent } from './structural/structural-directive.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
           {
             path: 'attribute',
             component: AttributeDirectiveComponent,
+          },
+          {
+            path: 'structural',
+            component: StructuralDirectiveComponent,
           },
           {
             path: 'ng-model',

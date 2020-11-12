@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, ViewChildren, 
 import { SharkDirective } from './shark.directive';
 import { ChildComponent } from './child/child.component';
 import { PaneDirective } from './pane.directive';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-attribute-directive',
@@ -9,32 +10,28 @@ import { PaneDirective } from './pane.directive';
 })
 export class AttributeDirectiveComponent implements AfterViewInit {
 
-
-  color: string;
-  // 2)
-  refFromSharkDirective : string = "Default Value";
-  changeRefFunction ;
-  // 3)
-  valueFromChild : string = "Some Value";
-  // 4)
-  shouldShow = false;
-  serializedPanes: string = '';
-
-
-  // 1) Using @ViewChild with a with DOM Element <input> -> reference variable #seaCreatureInput
+  // 1) @ViewChild with DOM Element <input> -> reference variable #seaCreatureInput
   @ViewChild('seaCreatureInput') seaCreatureInput: ElementRef;
 
-  // 2) Using @ViewChild with Directives -> as a setter
-  @ViewChild(SharkDirective)
-  set appShark(directive: SharkDirective) {
-    const curriedFuntion = (val) => () => { setTimeout(() => this.refFromSharkDirective = val )};
-    this.changeRefFunction= curriedFuntion(directive.creature);
-  };
-
-  // 3) Using @ViewChild with a ChildComponenet
+ // 2) @ViewChild to call Child component method
+  valueFromChild : string = "Some Value";
   @ViewChild(ChildComponent) child: ChildComponent;
 
-  // 4) Using @ViewChildren with Directive
+ // 3) Hightligh Directive
+  color: string;
+
+  // 5) Shark Derective - using @ViewChild  as a setter
+  refFromSharkDirective : string = "Default Value";
+  sharkDirective: SharkDirective;
+
+  @ViewChild(SharkDirective)
+  set appShark(directive: SharkDirective) {
+    this.sharkDirective = directive;
+  };
+
+  // 6) Pane Directive - Using @ViewChildren with Directive
+  shouldShow = false;
+  serializedPanes: string = '';
   @ViewChildren(PaneDirective) panes!: QueryList<PaneDirective>;
 
 
@@ -48,11 +45,11 @@ export class AttributeDirectiveComponent implements AfterViewInit {
     // 1) Setting the reference variable
     this.seaCreatureInput.nativeElement.value = 'Whale!';
     // 2)
-    this.changeRefFunction();
-    // 3)
     setTimeout(() => this.valueFromChild = this.child.whoAmI());
 
-    // 4)
+    // 5)
+    setTimeout(() => this.refFromSharkDirective = this.sharkDirective.creature);
+    // 6)
     this.calculateSerializedPanes(); //showing only 3 pane value
     this.panes.changes.subscribe(() => {
       this.calculateSerializedPanes(); // recalculate to show the 4th value

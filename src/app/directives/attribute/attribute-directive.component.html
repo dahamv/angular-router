@@ -1,51 +1,51 @@
-<h1>My First Attribute Directive</h1>
-
-<h4>Highlight Directive with @HostListener and @Input</h4>
-<div>
-  <input type="radio" name="colors" (click)="color='lightgreen'" [(ngModel)]="color">Green
-  <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+<div style="margin-top:10px">
+<!-- 1) @ViewChild with Dom element -->
+  <label>To see how @ViewChild works, set DOM element value using template ref variable: </label><input #seaCreatureInput>
+  <!-- 2) @ViewChild to call Child component method -->
+  <p>Call a Child Componenet method with @ViewChild : {{valueFromChild}}</p>
+  <app-child></app-child>
 </div>
+<hr>
+<h1>Attribute Directives</h1>
+
+<!-- 3) Hightligh Directive -->
+<h3>Highlight Directive with @HostListener and @Input</h3>
+<div>
+  <input type="radio" [(ngModel)]="color" name="colors" value="lightgreen"/>Green
+  <input type="radio" [(ngModel)]="color" name="colors" value="yellow"/>Yellow
+  <input type="radio" [(ngModel)]="color" name="colors" value="cyan"/>Cyan
+  <button type="button" class="btn btn-secondary" (click)="color=''">Reset</button>
+</div>
+<!-- No need ot have <p appHighlight [highlightColor]="color"> and @Input highlightColor:string
+You can simultaneously apply the directive and set the color in the same attribute like <p [appHighlight]="color">.  and @Input appHighlight: string;
+To have bind to an alias you can do @Input('appHighlight') highlightColor: string; -->
 <p [appHighlight]="color">Highlight me!</p>
-
 <p [appHighlight]="color" defaultColor="violet">Highlight me too!</p>
-
 <p appHighlight>This is a label element with Hightlight Directive</p>
-
 <p> This is a label element without Hightlight Directive </p>
 
 <hr>
 
+<!-- 4) Wordlength Detector Directive -->
+<h3>WordLengthDetactor Directive</h3>
+
 <div style="margin-top:10px">
-<table>
-    <tr>
-       <td>
-         <label>Please enter a long word :-</label>
-       </td>
-       <td>
-         <input type="text" appWordLengthDetector />
-       </td>
-    </tr>
-</table>
+  <label>Please enter a long word :-</label><input type="text" appWordLengthDetector />
 </div>
 
 <hr>
 
+<!-- 5) Shark Derective -->
 <h3>Sharks Directive with @ViewChild</h3>
 
 <div style="margin-top:10px">
   <label>Add Shark infront: </label><span appShark>Fin!</span>
-</div>
-
-<div style="margin-top:10px">
-  <label>SDOM element value set : </label><input #seaCreatureInput>
-  <p>Reference Read from Shark Directive : {{refFromSharkDirective}}</p>
-  <app-child></app-child>
-  <p>Child Componenet method called : {{valueFromChild}}</p>
+  <p>@View Child to get the reference 'creature' from Shark Directive : {{refFromSharkDirective}}</p>
 </div>
 
 <hr>
 
+<!-- 6) Pane Directive -->
 <h3>Pane Directive</h3>
 <appPane id="1"></appPane>
 <appPane id="2"></appPane>

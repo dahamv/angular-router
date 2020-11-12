@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener, OnChanges } from '@angular/core';
 
 @Directive({
+  //Brackets define a CSS attribute selector
   selector: '[appWordLengthDetector]'
 })
 export class WordLengthDetectorDirective implements OnChanges{
