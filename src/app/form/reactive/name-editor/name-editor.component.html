@@ -1,1 +1,13 @@
-<p>name-editor works!</p>
+<h2>Replacing a form control value</h2>
+<div style="margin-top:10px">
+  <label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+  <p>
+    Value: {{ name.value }}
+  </p>
+  <p>
+    <button (click)="updateName()">Update Name</button>
+  </p>
+</div>

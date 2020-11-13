@@ -7,10 +7,11 @@ import { HeroFormComponent } from './template-driven/hero-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NameEditorComponent } from './reactive/name-editor/name-editor.component';
 import { ReactiveFormComponent } from './reactive/reactive-form.component';
+import { ProfileEditorComponent } from './reactive/profile-editor/profile-editor.component';
 
 
 @NgModule({
-  declarations: [FormComponent, HeroFormComponent, NameEditorComponent, ReactiveFormComponent],
+  declarations: [FormComponent, HeroFormComponent, NameEditorComponent, ReactiveFormComponent, ProfileEditorComponent],
   imports: [
     CommonModule,
     FormsModule,

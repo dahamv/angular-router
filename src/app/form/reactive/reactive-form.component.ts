@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
+export type EditorType = 'name' | 'profile';
+
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive-form.component.html',
-  styles: [
-  ]
+  styleUrls: ['../form.component.scss']
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent {
 
-  constructor() { }
+  editor: EditorType = 'name';
 
-  ngOnInit(): void {
+  get showNameEditor() {
+    return this.editor === 'name';
   }
 
+  get showProfileEditor() {
+    return this.editor === 'profile';
+  }
+
+  toggleEditor(type: EditorType) {
+    this.editor = type;
+  }
 }
