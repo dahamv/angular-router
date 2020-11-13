@@ -8,7 +8,7 @@ const appRoutes: Routes = [
   {path: 'directives', loadChildren: () => import('./directives/directives.module').then(m => m.DirectivesModule)},
   {path: 'parent-child', loadChildren: () => import('./parent-child/parent-child.module').then(m => m.ParentChildModule)},
   {path: 'sales', loadChildren: () => import('./sales/sales.module').then(m => m.SalesModule)},
-  {path: 'form', loadChildren: () => import('./form/form.module').then(m => m.FormModule)},
+  {path: 'forms', loadChildren: () => import('./form/form.module').then(m => m.FormModule)},
   { path: '',   redirectTo: '/toh/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
