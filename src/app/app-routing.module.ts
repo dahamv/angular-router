@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './tour-of-heroes/page-not-found/page-not-
 
 // AppModule is eagerly loaded. i.e. loaded right away when the app starts.
 const appRoutes: Routes = [
+  {path: 'jokes', loadChildren: () => import('./jokes/jokes.module').then(m => m.JokesModule)},
   {path: 'dynamic', loadChildren: () => import('./dynamic/dynamic.module').then(m => m.DynamicModule)},
   {path: 'directives', loadChildren: () => import('./directives/directives.module').then(m => m.DirectivesModule)},
   {path: 'parent-child', loadChildren: () => import('./parent-child/parent-child.module').then(m => m.ParentChildModule)},
