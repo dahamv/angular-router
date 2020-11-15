@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-name-editor',
   templateUrl: './name-editor.component.html',
-  styleUrls: ['../../form.component.scss']
+  styleUrls: ['../reactive-form.component.scss']
 })
 export class NameEditorComponent implements OnInit {
 

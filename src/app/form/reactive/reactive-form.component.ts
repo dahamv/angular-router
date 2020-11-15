@@ -5,7 +5,7 @@ export type EditorType = 'name' | 'profile';
 @Component({
   selector: 'app-reactive',
   templateUrl: './reactive-form.component.html',
-  styleUrls: ['../form.component.scss']
+  styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent {
 
