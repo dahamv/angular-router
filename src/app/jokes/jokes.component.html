@@ -1,10 +1,23 @@
-<h1>@ViewChildren, @ContentChildren and Content Projection</h1>
 <h1>Jokes</h1>
+<h2>@ViewChildren, @ContentChildren</h2>
+<h3>Content Projection ng-content and ng-container</h3>
 
-<app-joke-list>
 <!-- Content Projection: This joke will be displayed in the <ng-content> section of app-joke-list component -->
-  <app-joke [joke]="joke"> (1)
-    <span class="setup">{{ joke.setup }}?</span>
-    <h1 class="punchline">{{ joke.punchline }}</h1>
+<app-joke-list>
+  <app-joke [joke]="joke">
+      <span class="setup">{{ joke.setup }}?</span>
+      <h1 class="punchline">{{ joke.punchline }}</h1>
+  </app-joke>
+  <app-joke [joke]="myJoke">
+  <!-- Consider this part as setup so that app-joke <ng-content> can handle -->
+     <ng-container ngProjectAs=".setup">
+      <span>{{ myJoke.setup }}?</span>
+      <span>Really</span>
+     </ng-container>
+     <!-- Consider this part as punchline  -->
+     <ng-container ngProjectAs=".punchline">
+      <span>How funny is that?</span>
+      <h1>{{ myJoke.punchline }}</h1>
+     </ng-container>
   </app-joke>
 </app-joke-list>

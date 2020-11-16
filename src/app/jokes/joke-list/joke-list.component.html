@@ -1,4 +1,4 @@
-<h4>View Jokes</h4>
+<h4 #header>View Jokes</h4>
 <!-- with [joke]='j', the same joke object is there in app-joke component as @Input data. -->
 <app-joke *ngFor="let j of jokes" [joke]="j"> (1)
   <!-- j.setup and j.punchline are content projected in app-joke component. -->
@@ -8,4 +8,5 @@
 
 <h4>Content Jokes</h4>
 <!-- The content (the 3rd joke) sent by Jokes parent component will be displayed here -->
-<ng-content></ng-content> (2)
+<ng-content></ng-content>
+
