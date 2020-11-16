@@ -1,0 +1,31 @@
+<div class="card card-block">
+  <h4 class="card-title">
+  <!-- With select we can select which elements to be projected. Here project elements styled with .setup class only-->
+    <ng-content select=".setup"></ng-content>
+  </h4>
+  <p class="card-text"
+     [hidden]="data.hide">
+     <!-- Project elements with .punchline class only -->
+    <ng-content select=".punchline"></ng-content>
+  </p>
+  <a class="btn btn-primary"
+     (click)="data.toggle()">Tell Me
+  </a>
+</div>
+
+<!-- The following is the final rendered app-joke element in browser -->
+<!--
+
+<app-joke _ngcontent-ywa-c52="" _nghost-ywa-c51="" ng-reflect-data="[object Object]">
+  <div _ngcontent-ywa-c51="" class="card card-block">
+    <h4 _ngcontent-ywa-c51="" class="card-title">
+      <span _ngcontent-ywa-c52="" class="setup">What did the cheese say when it looked in the mirror?</span>
+    </h4>
+    <p _ngcontent-ywa-c51="" class="card-text" hidden="">
+      <h1 _ngcontent-ywa-c52="" class="punchline">Hello-me (Halloumi)</h1>
+    </p>
+    <a _ngcontent-ywa-c51="" class="btn btn-primary">Tell Me </a>
+  </div>
+</app-joke>
+
+ -->

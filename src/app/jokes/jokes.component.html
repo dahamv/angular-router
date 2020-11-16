@@ -1,1 +1,10 @@
-<h1>@ViewChildren & @ContentChildren</h1>
+<h1>@ViewChildren, @ContentChildren and Content Projection</h1>
+<h1>Jokes</h1>
+
+<app-joke-list>
+<!-- Content Projection: This joke will be displayed in the <ng-content> section of app-joke-list component -->
+  <app-joke [joke]="joke"> (1)
+    <span class="setup">{{ joke.setup }}?</span>
+    <h1 class="punchline">{{ joke.punchline }}</h1>
+  </app-joke>
+</app-joke-list>
