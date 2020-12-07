@@ -9,7 +9,7 @@
 <h1>Attribute Directives</h1>
 
 <!-- 3) Hightligh Directive -->
-<h3>Highlight Directive with @HostListener and @Input</h3>
+<h3>Highlight Directive with @HostListener, @HostBinding, exportAs and @Input</h3>
 <div>
   <input type="radio" [(ngModel)]="color" name="colors" value="lightgreen"/>Green
   <input type="radio" [(ngModel)]="color" name="colors" value="yellow"/>Yellow
@@ -21,9 +21,11 @@ You can simultaneously apply the directive and set the color in the same attribu
 To have bind to an alias you can do @Input('appHighlight') highlightColor: string; -->
 <p [appHighlight]="color">Highlight me!</p>
 <p [appHighlight]="color" defaultColor="violet">Highlight me too!</p>
-<p appHighlight>This is a label element with Hightlight Directive</p>
+<!-- NOTE: how exportAs is used. -->
+<p appHighlight #a='highlightExportAs'>This is a label element with Hightlight Directive</p>
 <p> This is a label element without Hightlight Directive </p>
-
+<!-- because of exportAs we can call hightlight method of the directive from the template -->
+<button (click)="a.highlight('pink')">Highlight Pink</button>
 <hr>
 
 <!-- 4) Wordlength Detector Directive -->

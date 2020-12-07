@@ -4,14 +4,14 @@ import { Directive, ElementRef, HostListener, OnChanges } from '@angular/core';
   //Brackets define a CSS attribute selector
   selector: '[appWordLengthDetector]'
 })
-export class WordLengthDetectorDirective implements OnChanges{
+export class WordLengthDetectorDirective {
 
   constructor(private el: ElementRef) {
     console.log(el.nativeElement.value);
   }
 
   // Listen for keyup event and change background color
-  @HostListener("window:keyup") ngOnChanges(event) {
+  @HostListener("window:keyup") ngOnChangee(event) {
 
     let count = this.el.nativeElement.value.length
     console.log(this.el.nativeElement.value.length);
